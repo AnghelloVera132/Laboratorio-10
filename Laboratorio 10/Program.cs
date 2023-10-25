@@ -10,9 +10,8 @@ namespace Laboratorio_10
     {
         static int mPhones = 0;
         static int mPads = 0;
-        static int MAPBrooks= 0;
+        static int MAPBrooks = 0;
         static int mWatches = 0;
-
         static int totalPhones = 0;
         static int totalPads = 0;
         static int totalMAPBrooks = 0;
@@ -20,24 +19,24 @@ namespace Laboratorio_10
 
         static void PantallaInicio()
         {
-            
+
             while (true)
             {
-                
-                Console.WriteLine("================================");
-                Console.WriteLine("Productos de mPhone");
-                Console.WriteLine("================================");
-                Console.WriteLine("1: Ventas de mPhone 3000");
-                Console.WriteLine("2: Ventas de mPad 3500");
-                Console.WriteLine("3: Ventas de MAPBrook 3800");
-                Console.WriteLine("4: Ventas de mWatch 8000");
-                Console.WriteLine("5: Salir");
-                Console.WriteLine("================================");
-                Console.WriteLine("Ingrese una opción:");
 
-                int option = int.Parse(Console.ReadLine());
+                Console.WriteLine("================================"+
+                "Productos de mPhone"+
+                "================================"+
+                "1: Ventas de mPhone 3000"+
+                "2: Ventas de mPad 3500"+
+                "3: Ventas de MAPBrook 3800"+
+                "4: Ventas de mWatch 8000"+
+                "5: Salir"+
+                "================================"+
+                "Ingrese una opción:");
+
+                int opcion = int.Parse(Console.ReadLine());
                 Console.Clear();
-                switch (option)
+                switch (opcion)
                 {
                     case 1:
                         RegistrarVenta("mPhone 3000");
@@ -58,53 +57,53 @@ namespace Laboratorio_10
             }
         }
 
-        static void RegistrarVenta(string productName)
+        static void RegistrarVenta(string producto)
         {
             while (true)
             {
-                Console.WriteLine("================================");
-                Console.WriteLine($"Registrar Venta de {productName}");
-                Console.WriteLine("================================");
-                Console.WriteLine("1: Registrar Venta");
-                Console.WriteLine("2: Registrar Devolución");
-                Console.WriteLine("3: Menu Principal");
-                Console.WriteLine("================================");
-                Console.WriteLine("Ingrese una opción:");
-                int option = int.Parse(Console.ReadLine());
+                Console.WriteLine("================================"+
+                $"Registrar Venta de {producto}"+
+                "================================"+
+                "1: Registrar Venta"+
+                "2: Registrar Devolución"+
+                "3: Menu Principal"+
+                "================================"+
+                "Ingrese una opción:");
+                int opcion = int.Parse(Console.ReadLine());
                 Console.Clear();
-                switch (option)
+                switch (opcion)
                 {
                     case 1:
-                        RegistrarDevolucion(productName);
+                        RegistrarDevolucion(producto);
                         break;
                     case 2:
-                        RegresarProducto(productName);
+                        RegresarProducto(producto);
                         break;
                     case 3:
                         return;
                     default:
-                        Console.WriteLine("Opción no válida. Por favor, ingrese una opción válida.");
+                        Console.WriteLine("ERROR");
                         break;
                 }
             }
         }
 
-        static void RegistrarDevolucion(string productName)
+        static void RegistrarDevolucion(string producto)
         {
-            Console.WriteLine("================================");
-            Console.WriteLine($"Registrar venta de {productName}");
-            Console.WriteLine("================================");
-            Console.WriteLine($"Se va a registrar la venta de un{productName}");
-            Console.WriteLine("¿Desea Continuar?");
-            Console.WriteLine("1: Sí");
-            Console.WriteLine("2: No");
-            Console.WriteLine("================================");
-            Console.WriteLine("Ingrese una opción:");
-            int option = int.Parse(Console.ReadLine());
+            Console.WriteLine("================================"+
+            $"Registrar venta de {producto}"+
+            "================================"+
+            $"Se va a registrar la venta de un{producto}"+
+            "¿Desea Continuar?"+
+            "1: Sí"+
+            "2: No"+
+            "================================"+
+            "Ingrese una opción:");
+            int opcion = int.Parse(Console.ReadLine());
             Console.Clear();
-            if (option == 1)
+            if (opcion == 1)
             {
-                switch (productName)
+                switch (producto)
                 {
                     case "mPhone 3000":
                         mPhones++;
@@ -126,33 +125,32 @@ namespace Laboratorio_10
             }
         }
 
-        static void RegresarProducto(string productName)
+        static void RegresarProducto(string producto)
         {
-            Console.WriteLine("================================");
-            Console.WriteLine($"Registrar devolución de:");
-            Console.WriteLine("================================");
-            Console.WriteLine($"Se va a registrar la devolución de un{productName}");
-            Console.WriteLine("¿Desea Continuar?");
-            Console.WriteLine("1: Sí");
-            Console.WriteLine("2: No");
-            Console.WriteLine("================================");
-            Console.WriteLine("Ingrese una opción:");
-            int option = int.Parse(Console.ReadLine());
+            Console.WriteLine("================================"+
+            $"Registrar devolución de:"+
+            "================================"+
+            $"Se va a registrar la devolución de un{producto}"+
+            "¿Desea Continuar?"+
+            "1: Sí"+
+            "2: No"+
+            "================================"+
+            "Ingrese una opción:");
+            int opcion = int.Parse(Console.ReadLine());
             Console.Clear();
-            if (option == 1)
+            if (opcion == 1)
             {
-                switch (productName)
+                switch (producto)
                 {
                     case "mPhone 3000":
                         if (mPhones > 0)
                         {
                             mPhones--;
                             totalPhones--;
-                            Console.WriteLine("Devolución registrada con éxito.");
                         }
                         else
                         {
-                            Console.WriteLine("No hay suficientes productos para devolver.");
+                            Console.WriteLine("ERROR");
                         }
                         break;
                     case "mPad 3500":
@@ -160,11 +158,10 @@ namespace Laboratorio_10
                         {
                             mPads--;
                             totalPads--;
-                            Console.WriteLine("Devolución registrada con éxito.");
                         }
                         else
                         {
-                            Console.WriteLine("No hay suficientes productos para devolver.");
+                            Console.WriteLine("ERROR");
                         }
                         break;
                     case "MAPBrook 3800":
@@ -172,11 +169,10 @@ namespace Laboratorio_10
                         {
                             MAPBrooks--;
                             totalMAPBrooks--;
-                            Console.WriteLine("Devolución registrada con éxito.");
                         }
                         else
                         {
-                            Console.WriteLine("No hay suficientes productos para devolver.");
+                            Console.WriteLine("ERROR");
                         }
                         break;
                     case "mWatch 8000":
@@ -184,11 +180,10 @@ namespace Laboratorio_10
                         {
                             mWatches--;
                             totalWatches--;
-                            Console.WriteLine("Devolución registrada con éxito.");
                         }
                         else
                         {
-                            Console.WriteLine("No hay suficientes productos para devolver.");
+                            Console.WriteLine("ERROR");
                         }
                         break;
                 }
@@ -208,7 +203,7 @@ namespace Laboratorio_10
             Console.WriteLine($"mWatches          |  {totalWatches}");
             Console.WriteLine("---------------------------------");
             Console.WriteLine($"Total             |  {totalPhones + totalPads + totalMAPBrooks + totalWatches}");
-            Console.WriteLine("================================="); 
+            Console.WriteLine("=================================");
             Console.WriteLine("¡Hasta luego!\n\n\n\n");
 
 
